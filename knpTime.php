@@ -51,6 +51,9 @@ class knpTime
    */
   static public function setDate($date)
   {
+    if (self::$time) {
+      return self::$time = strtotime($date, self::$time);
+    }
     return self::$time = strtotime($date);
   }
 }
